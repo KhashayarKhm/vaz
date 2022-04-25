@@ -38,6 +38,7 @@ function goto_root {
 function refactor {
   git mv $1 $2
   goto_root
+  TARGET_FILES="${grep -r $1 ./}"
 }
 
 function main {
@@ -55,3 +56,4 @@ function main {
   fi
 }
 
+main $1 $2

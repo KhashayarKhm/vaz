@@ -1,0 +1,10 @@
+{
+  "name": "vaz",
+  "version": "0.1.0",
+  "description": "Refactor tool for javascript/typescript projects",
+  "main": "dist/index.js",
+  "repository": "https://github.com/KhashayarKhm/vaz.git",
+  "author": "KhashayarKhm <khashayar.khm@protonmail.com>",
+  "license": "GPL-3.0-or-later",
+  "private": false
+}
