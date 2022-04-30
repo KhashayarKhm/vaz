@@ -2,9 +2,43 @@
   "name": "vaz",
   "version": "0.1.0",
   "description": "Refactor tool for javascript/typescript projects",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/KhashayarKhm/vaz.git",
   "author": "KhashayarKhm <khashayar.khm@protonmail.com>",
   "license": "GPL-3.0-or-later",
-  "private": false
+  "private": false,
+  "scripts": {
+    "lint": "eslint '*/**/*.ts'",
+    "prettier:write": "prettier --write src/**/*.*",
+    "dev": "DEV_ENV=true nodemon index.js",
+    "start": "node index.js",
+    "tsc": "tsc",
+    "build": "babel src --out-dir lib --copy-files --extensions '.ts,.js'"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/runtime": "^7.17.9",
+    "ramda": "^0.28.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@babel/register": "^7.17.7",
+    "@types/node": "^17.0.27",
+    "@types/ramda": "^0.28.11",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
 }

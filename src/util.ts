@@ -1,13 +1,16 @@
-export function isDef (value: unknown): boolean {
-  return  value !== undefined && value !== null;
+import { is, includes } from 'ramda'
+
+export function _isString(value: unknown): value is string {
+  return is(String, value)
 }
 
-export function includesByKey<T>(list: T[], item: T, key: string | number): boolean {
-  return list.findIndex(item[key]) !== -1;
+export function _includes<T>(list: T[], searchFn: (item: T, index: number, array: T[]) => boolean): boolean {
+  return list.findIndex(searchFn) !== -1;
 }
 
-export function includes<T>(list: T[], item: T): boolean {
-  return list.findIndex(item) !== -1;
+export function _includesExact<T>(list: T[], item: T): boolean {
+  if (_isString(item)) {
+    return _includes<T>(list, _item => item === _item)
+  }
+  return includes(item, list)
 }
-
-

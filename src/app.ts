@@ -1,14 +1,16 @@
-const SUPPORTED_FILES = ['vue', 'ts', 'js'];
+import { _includesExact } from './util'
+import { SUPPORTED_FILES } from './constant'
+import { existsSync } from 'fs'
+import { extname } from 'path'
+import { argv } from 'process'
 
-const help = () => {
-  console.log('Usage: vaz <current path | current name> <new path | new name>');
-  console.log('WARNING: THIS COMMAND ONLY WORKS ON JAVASCRIPT OR JAVASCRIPT BASE PROJECTS');
+function isInSupportedFiles(file: string): boolean {
+  return _includesExact(SUPPORTED_FILES, extname(file))
 }
 
-const isInSupportedFiles = (file: string | File): boolean => {
-  const fileName = typeof file === 'string' ? file : file.name;
-  const lastIndexOfFileDot = fileName.lastIndexOf('.');
-  const fileExt = fileName.slice(lastIndexOfFileDot);
+export function main() {
+  if (existsSync(argv[1]) && isInSupportedFiles(argv[1])) {
 
-  return
+  } else {
+  }
 }

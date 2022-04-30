@@ -9,7 +9,7 @@ function is_in_supported_files {
   FILE_EXT="${1##*.}"
   SUPPORTED_FILES=("vue js ts")
 
-  if ["${SUPPORTED_FILES[*]}" =~ "${FILE_EXT}"]; then
+  if [[ "${SUPPORTED_FILES[*]}" =~ "${FILE_EXT}" ]]; then
     return true
   else
     return false
@@ -19,7 +19,7 @@ function is_in_supported_files {
 function validate_path {
   FILE_NAME="${basename $1}"
 
-  if [-f $1 && is_in_supported_files $FILE_NAME]; then
+  if [[ -f $1 && is_in_supported_files $FILE_NAME ]]; then
     return true
   else
     return false
