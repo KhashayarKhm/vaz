@@ -1,16 +1,29 @@
 import { _includesExact } from './util'
-import { SUPPORTED_FILES } from './constant'
 import { existsSync } from 'fs'
-import { extname } from 'path'
 import { argv } from 'process'
+import { invalidFileExtension } from './logs'
+import { cond, ifElse } from 'ramda'
+import { isInSupportedFiles } from './modules/file-system'
 
-function isInSupportedFiles(file: string): boolean {
-  return _includesExact(SUPPORTED_FILES, extname(file))
+function refactorConditions () {
+  const currentPath = argv[1 + process.env.ARG_INDEX];
+  const newPath = argv[2 + process.env.ARG_INDEX];
+
+  return (
+    existsSync(currentPath) &&
+    isInSupportedFiles(currentPath) &&
+    isInSupportedFiles(newPath)
+  );
 }
 
-export function main() {
-  if (existsSync(argv[1]) && isInSupportedFiles(argv[1])) {
+function findException() {
+  const currentPath = argv[1 + process.env.ARG_INDEX];
+  const newPath = argv[2 + process.env.ARG_INDEX];
 
-  } else {
-  }
+  return cond([
+  ])
 }
+
+(function main() {
+  ifElse(refactorConditions, () => { console.log(0) }, findException)
+})()
