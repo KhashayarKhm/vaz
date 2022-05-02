@@ -13,7 +13,6 @@
     "isolatedModules": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "noEmit": true,
     "noFallthroughCasesInSwitch": false,
     "noImplicitAny": false,
     "outDir": "./lib",

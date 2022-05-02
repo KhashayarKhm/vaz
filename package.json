@@ -9,9 +9,9 @@
   "private": false,
   "scripts": {
     "lint": "eslint '*/**/*.ts'",
+    "lint-and-fix": "eslint --ext .ts --fix",
     "prettier:write": "prettier --write src/**/*.*",
-    "dev": "DEV_ENV=true nodemon index.js",
-    "start": "node index.js",
+    "start": "ts-node src/app.ts",
     "tsc": "tsc",
     "build": "babel src --out-dir lib --copy-files --extensions '.ts,.js'"
   },
@@ -35,8 +35,9 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "nodemon": "^2.0.15",
+    "eslint-plugin-promise": "^6.0.0",
     "prettier": "^2.6.2",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
