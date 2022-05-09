@@ -1,7 +1,7 @@
-import { _includesExact } from './util'
+import { _includesExact } from './modules/utils'
 import { existsSync } from 'fs'
 import { argv } from 'process'
-import { invalidFileExtension } from './logs'
+import { invalidFileExtension } from './modules/logs'
 import { cond, ifElse } from 'ramda'
 import { isInSupportedFiles } from './modules/file-system'
 
